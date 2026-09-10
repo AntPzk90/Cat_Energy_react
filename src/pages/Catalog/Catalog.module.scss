@@ -1,0 +1,54 @@
+.catalog {
+  @include flex(column, flex-start, stretch);
+
+  &__wrapper {
+    @include container;
+
+    padding-block: 25px;
+
+    @include respond-to(desktop) {
+      padding-block-start: $header-height-desktop;
+
+      display: grid;
+      column-gap: 40px;
+      grid-template-columns: 300px 1fr;
+      grid-template-areas:
+        'title title'
+        'sort sort'
+        'side-menu catalog'
+        'side-menu pagination';
+    }
+  }
+
+  &__title {
+    margin-block: 15px;
+
+    grid-area: title;
+  }
+
+  &__top-menu {
+    @include flex(row, space-between, center);
+    grid-area: sort;
+    margin-block-end: $spacing-md;
+
+    @include respond-to(desktop) {
+      @include flex(row, flex-end, center);
+    }
+  }
+
+  &__filters-btn {
+    @include respond-to(desktop) {
+      display: none;
+    }
+  }
+}
+
+.item {
+  padding: $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+}
+
+.error {
+  color: $color-danger;
+}

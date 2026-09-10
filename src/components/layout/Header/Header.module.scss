@@ -1,0 +1,150 @@
+.header {
+  border-bottom: 1px solid $color-border;
+  background-color: $color-bg;
+  position: sticky;
+  top: 0;
+  z-index: 11;
+  height: $header-height;
+
+  @include respond-to(tablet) {
+    height: $header-height-desktop;
+  }
+
+  @include respond-to(desktop) {
+    position: absolute;
+    width: 100%;
+    background: linear-gradient(to right, transparent 50%, rgba(104, 183, 56, 0.3) 50%) 0 0 / 100%
+      100% no-repeat;
+    border: none;
+    background-blend-mode: multiply;
+  }
+
+  &--contrast {
+    background: $color-bg;
+    border-bottom: 1px solid $color-border;
+
+    .nav a {
+      color: $color-black;
+    }
+  }
+}
+
+.inner {
+  @include container;
+  @include flex(row, space-between, center);
+  height: $header-height;
+
+  @include respond-to(tablet) {
+    height: $header-height-desktop;
+  }
+}
+
+.logo {
+  font-size: $font-size-lg;
+  font-weight: 700;
+
+  &__mobile,
+  &__mobile-text {
+    @include respond-to(tablet) {
+      display: none;
+    }
+  }
+
+  &__desktop {
+    display: none;
+
+    @include respond-to(tablet) {
+      display: block;
+    }
+  }
+}
+
+.nav {
+  @include flex(column, start, center, 24px);
+
+  display: none;
+  position: absolute;
+  inset: $header-height 0 0 auto;
+  width: 50%;
+  height: calc(100dvh - $header-height);
+  padding-block-start: 24px;
+  padding-inline: 12px;
+  background-color: $color-white;
+  border-inline-start: 1px solid $color-primary;
+
+  @include respond-to(tablet) {
+    @include flex(row, start, center, 24px);
+
+    position: static;
+    width: auto;
+    height: 100%;
+    background: none;
+    border: none;
+    padding: 0;
+    margin-inline-start: auto;
+  }
+
+  &--opened {
+    display: flex;
+  }
+
+  a {
+    border-bottom: 2px solid transparent;
+    border-top: 2px solid transparent;
+
+    @include respond-to(desktop) {
+      color: $color-white;
+    }
+  }
+}
+
+.nav-btn {
+  @include flex(column, space-between, center);
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+
+  @include respond-to(tablet) {
+    display: none;
+  }
+
+  span {
+    width: 100%;
+    height: 2px;
+    background-color: $color-black;
+  }
+
+  &::before,
+  &::after {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: $color-black;
+    content: '';
+  }
+}
+
+.cartLink {
+  position: relative;
+  display: inline-flex;
+  margin-inline-start: 10px;
+  background-color: $color-primary;
+  border-radius: 50%;
+  padding: 4px;
+}
+
+.cartBadge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  min-width: 16px;
+  height: 16px;
+  padding-inline: 4px;
+  border-radius: 999px;
+  background-color: $color-primary;
+  color: #fff;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 16px;
+  text-align: center;
+}

@@ -1,0 +1,27 @@
+.not-found {
+  @include flex(column, center, center, $spacing-sm);
+  padding: $spacing-xl 0;
+  text-align: center;
+
+  &__wrapper {
+    @include container;
+
+    padding-block: 25px;
+
+    @include respond-to(desktop) {
+      padding-block-start: $header-height-desktop;
+
+      display: grid;
+      column-gap: 40px;
+    }
+  }
+
+  h1 {
+    font-size: 48px;
+  }
+
+  a {
+    color: $color-primary;
+    text-decoration: underline;
+  }
+}

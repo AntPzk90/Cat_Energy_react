@@ -1,0 +1,52 @@
+.button {
+  @include reset-button;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-md;
+  font-size: $font-size-base;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: all 0.15s ease;
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+.primary {
+  background-color: $color-primary;
+  color: $color-white;
+  padding-block: 7px;
+  padding-inline: 26px;
+
+  @include respond-to(tablet) {
+    padding-block: 14px;
+    padding-inline: 44px;
+  }
+
+  &:hover:not(:disabled) {
+    background-color: $color-primary-hover;
+    opacity: 0.6;
+  }
+}
+
+.secondary {
+  background-color: $color-secondary;
+  color: $color-text;
+  border: 1px solid $color-border;
+
+  &:hover:not(:disabled) {
+    background-color: $color-bg-secondary;
+  }
+}
+
+.danger {
+  background-color: $color-danger;
+  color: #fff;
+
+  &:hover:not(:disabled) {
+    opacity: 0.9;
+  }
+}

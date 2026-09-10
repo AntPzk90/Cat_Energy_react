@@ -1,0 +1,140 @@
+.main-banner {
+  @include respond-to(desktop) {
+    position: relative;
+    height: 600px;
+    padding-block-start: $header-height-desktop;
+  }
+
+  &__wrapper {
+    @include container;
+    @include flex(column, start, center);
+
+    position: relative;
+    padding-block: 25px;
+
+    @include respond-to(tablet) {
+      align-items: start;
+    }
+
+    @include respond-to(desktop) {
+      justify-content: center;
+      height: 100%;
+    }
+  }
+
+  &__text-block {
+    text-align: center;
+    color: $color-white;
+    max-width: 360px;
+
+    @include respond-to(tablet) {
+      color: $color-black;
+      text-align: left;
+      max-width: 100%;
+    }
+
+    @include respond-to(desktop) {
+      z-index: 2;
+      max-width: 50%;
+    }
+  }
+
+  &__title {
+    margin-block-end: 25px;
+  }
+
+  &__slogan {
+    margin-block-end: 25px;
+    font-size: 14px;
+    text-transform: uppercase;
+
+    @include respond-to(tablet) {
+      font-size: 20px;
+    }
+  }
+
+  &__art-wrapper {
+    position: relative;
+    aspect-ratio: 28 / 27;
+    width: 100%;
+
+    @include respond-to(tablet) {
+      max-height: 440px;
+      margin-top: -40px;
+    }
+
+    @include respond-to(desktop) {
+      position: absolute;
+      inset-block-end: 0;
+      inset-inline-start: 30%;
+      width: 600px;
+    }
+  }
+
+  &__art {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: 100%;
+
+    @include respond-to(tablet) {
+      inset-inline-start: 60%;
+      transform: translateX(-50%);
+    }
+
+    @include respond-to(desktop) {
+      inset-inline-start: 50%;
+    }
+  }
+
+  &__btn-wrapper {
+    order: 1;
+
+    @include respond-to(tablet) {
+      order: unset;
+    }
+  }
+
+  &__bg {
+    position: absolute;
+    z-index: -1;
+    inset: $header-height 0 0 0;
+    background: url('src/assets/images/index-background@2x.jpg') 0 0 / auto 100% no-repeat;
+    aspect-ratio: 32 / 30.2;
+
+    &:after {
+      display: block;
+      position: absolute;
+      inset: 0;
+      background: $color-primary;
+      opacity: 0.85;
+      content: '';
+
+      @include respond-to(desktop) {
+        background:
+          linear-gradient(to right, transparent 50%, $color-primary 50%) 0 0 / 100% 100% no-repeat,
+          url('src/assets/images/index-background-desktop.png') calc(50% + 300px) 0 / 600px 640px
+            no-repeat;
+        opacity: 1;
+        background-blend-mode: color;
+      }
+    }
+
+    @include respond-to(tablet) {
+      display: none;
+      aspect-ratio: unset;
+    }
+
+    @include respond-to(desktop) {
+      inset: 0;
+      display: block;
+      background: none;
+    }
+  }
+}
+
+.cta {
+  position: relative;
+  min-height: 40px;
+  z-index: 10;
+}

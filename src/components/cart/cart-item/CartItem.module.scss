@@ -1,0 +1,61 @@
+// CartItem.module.scss
+.cart-item {
+  @include flex(row, flex-start, center, $spacing-md);
+
+  padding: $spacing-md;
+  border-bottom: 1px solid $color-border;
+
+  &__image {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+
+  &__info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  &__title {
+    font-size: $font-size-base;
+    font-weight: 600;
+    @include ellipsis;
+  }
+
+  &__meta {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+
+  &__quantity {
+    @include flex(row, center, center, $spacing-sm);
+
+    button {
+      @include reset-button;
+
+      width: 24px;
+      height: 24px;
+      border: 1px solid $color-border;
+      border-radius: $radius-sm;
+    }
+  }
+
+  &__price {
+    min-width: 80px;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  &__remove {
+    @include reset-button;
+
+    color: $color-text-muted;
+    font-size: $font-size-lg;
+    padding: $spacing-xs;
+
+    &:hover {
+      color: $color-danger;
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.product-list {
+  @include flex(column, flex-start, stretch);
+
+  @include respond-to(tablet) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  @include respond-to(desktop) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

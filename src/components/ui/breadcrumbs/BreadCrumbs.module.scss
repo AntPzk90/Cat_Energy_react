@@ -1,0 +1,33 @@
+// Breadcrumbs.module.scss
+.breadcrumbs {
+  margin-block: $spacing-md;
+}
+
+.breadcrumbs__list {
+  @include flex(row, flex-start, center, $spacing-xs);
+
+  flex-wrap: wrap;
+  font-size: $font-size-sm;
+}
+
+.breadcrumbs__item {
+  @include flex(row, flex-start, center, $spacing-xs);
+}
+
+.breadcrumbs__link {
+  color: $color-text-muted;
+  transition: color 0.15s ease;
+
+  &:hover {
+    color: $color-primary;
+  }
+}
+
+.breadcrumbs__current {
+  color: $color-text;
+  font-weight: 600;
+}
+
+.breadcrumbs__separator {
+  color: $color-border;
+}

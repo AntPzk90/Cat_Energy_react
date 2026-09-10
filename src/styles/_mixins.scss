@@ -1,0 +1,46 @@
+@use './variables' as *;
+
+@mixin flex($direction: row, $justify: flex-start, $align: stretch, $gap: 0) {
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+}
+
+@mixin container {
+  width: 100%;
+  max-width: $bp-desktop;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint==mobile {
+    @media (min-width: $bp-mobile) {
+      @content;
+    }
+  } @else if $breakpoint==tablet {
+    @media (min-width: $bp-tablet) {
+      @content;
+    }
+  } @else if $breakpoint==desktop {
+    @media (min-width: $bp-desktop) {
+      @content;
+    }
+  }
+}
+
+@mixin ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin reset-button {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  font: inherit;
+}

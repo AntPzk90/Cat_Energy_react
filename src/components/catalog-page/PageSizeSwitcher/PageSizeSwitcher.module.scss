@@ -1,0 +1,17 @@
+// PageSizeSwitcher.module.scss
+.switcher {
+  @include flex(row, flex-end, center, $spacing-sm);
+
+  button {
+    @include reset-button;
+    padding: $spacing-xs $spacing-sm;
+    border: 1px solid $color-border;
+    border-radius: $radius-sm;
+
+    &.active {
+      background-color: $color-primary;
+      color: #fff;
+      border-color: $color-primary;
+    }
+  }
+}

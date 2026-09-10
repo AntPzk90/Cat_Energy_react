@@ -1,0 +1,21 @@
+.product-page {
+  @include flex(column, flex-start, stretch);
+
+  &__wrapper {
+    @include container;
+
+    padding-block: 25px;
+
+    @include respond-to(desktop) {
+      padding-block-start: $header-height-desktop;
+    }
+  }
+
+  &__title {
+    margin-block: 15px;
+  }
+}
+
+.error {
+  color: $color-danger;
+}

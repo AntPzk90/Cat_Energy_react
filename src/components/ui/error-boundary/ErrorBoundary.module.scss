@@ -1,0 +1,6 @@
+.wrapper {
+  @include flex(column, center, center);
+  padding: $spacing-xl;
+  color: $color-text-muted;
+  text-align: center;
+}

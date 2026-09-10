@@ -1,0 +1,41 @@
+// ReviewCard.module.scss
+.review-card {
+  margin-block-start: 20px;
+  padding: $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+
+  &__header {
+    @include flex(row, space-between, center);
+    margin-block-end: $spacing-sm;
+  }
+
+  &__author {
+    font-weight: 600;
+  }
+
+  &__date {
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+  }
+
+  &__rating {
+    margin-block-end: $spacing-sm;
+    font-size: $font-size-lg;
+    line-height: 1;
+  }
+
+  &__star {
+    color: $color-border;
+  }
+
+  &__star--filled {
+    color: $color-primary;
+  }
+
+  &__text {
+    font-size: $font-size-sm;
+    color: $color-text;
+    line-height: 1.5;
+  }
+}

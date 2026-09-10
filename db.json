@@ -1,0 +1,517 @@
+{
+  "main": {
+    "banner": {
+      "title": "Функциональное питание для котов",
+      "subtitle": "Здоровое сердце. Красивая шерсть",
+      "image": "https://placehold.co/400x400?text=hero-jar",
+      "buttonText": "Каталог товаров",
+      "buttonLink": "/catalog"
+    },
+    "infoSection": [
+      {
+        "id": 1,
+        "slug": "slim",
+        "title": "Похудение",
+        "icon": "/icons/slim-cat-icon.svg",
+        "description": "Заглушка описания продукта Slim — подробнее про мягкое похудение без вреда для кота.",
+        "buttonText": "Выбрать Slim",
+        "buttonLink": "/catalog/slim"
+      },
+      {
+        "id": 2,
+        "slug": "pro",
+        "title": "Набор массы",
+        "description": "Заглушка описания продукта Pro — про набор мышечной массы и восстановление сил.",
+        "icon": "/icons/muscule-cat-icon.svg",
+        "buttonText": "Выбрать Pro",
+        "buttonLink": "/catalog/pro"
+      }
+    ],
+    "howItWorks": {
+      "title": "Как это работает",
+      "steps": [
+        {
+          "id": 1,
+          "icon": "/icons/leaf-icon.svg",
+          "text": "Функциональное питание содержит специально подобранные полезные вещества"
+        },
+        {
+          "id": 2,
+          "icon": "/icons/povder-icon.svg",
+          "text": "Выпускается в виде порошка, который нужно лишь залить кипятком и готово."
+        },
+        {
+          "id": 3,
+          "icon": "/icons/eat-icon.svg",
+          "text": "Замените один-два приема обычной еды на наше функциональное питание."
+        },
+        {
+          "id": 4,
+          "icon": "/icons/weight-icon.svg",
+          "text": "Уже через месяц наслаждайтесь изменениями к лучшему вашего питомца!"
+        }
+      ]
+    },
+    "example": {
+      "title": "Живой пример",
+      "description": "Борис сбросил 5 кг за 2 месяца, просто заменив свой обычный корм на Cat Energy Slim. Отличный результат без изнуряющих тренировок! При этом он не менял своих привычек и по-прежнему спит по 16 часов в день.",
+      "stats": [
+        {
+          "id": 1,
+          "value": "5 КГ",
+          "label": "Набранный вес"
+        },
+        {
+          "id": 2,
+          "value": "60 ДНЕЙ",
+          "label": "Длительность курса"
+        }
+      ],
+      "images": {
+        "before": "/images/cat-skinny@2x.png",
+        "after": "/images/cat-fat@2x.png"
+      },
+      "priceLabel": "Затраты на питание:",
+      "price": 4500
+    },
+    "contacts": {
+      "title": "Приходите в сертифицированную дверь",
+      "address": "ул. Большая и Широкая, д. 7",
+      "city": "г. Харьков",
+      "mapImage": "https://placehold.co/400x200?text=map",
+      "mapCoords": {
+        "lat": 50.0037,
+        "lng": 36.2311
+      }
+    },
+    "footer": {
+      "logo": "CAT ENERGY",
+      "credits": "HTML Academy"
+    }
+  },
+  "catalog": {
+    "title": "Каталог продукции",
+
+    "catalogInfo": {
+      "totalCount": 100500,
+      "teaserTitle": "Показать ещё 100500 товаров",
+      "teaserText": "На самом деле вкусов гораздо больше!",
+      "teaserButtonText": "Показать всё"
+    }
+  },
+  "products": [
+    {
+      "id": 1,
+      "slug": "pro-500-chicken",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "500 г",
+      "taste": "Курица",
+      "price": 650,
+      "image": "/images/product-1.png",
+      "buttonText": "Заказать",
+      "calories": 380,
+      "protein": 32,
+      "fat": 18,
+      "carbs": 24
+    },
+    {
+      "id": 2,
+      "slug": "pro-1000-chicken",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "1000 г",
+      "taste": "Курица",
+      "price": 1150,
+      "image": "/images/product-2.png",
+      "buttonText": "Заказать",
+      "calories": 375,
+      "protein": 31,
+      "fat": 17,
+      "carbs": 25
+    },
+    {
+      "id": 3,
+      "slug": "pro-500-fish",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "500 г",
+      "taste": "Рыба",
+      "price": 700,
+      "image": "/images/product-3.png",
+      "buttonText": "Заказать",
+      "calories": 365,
+      "protein": 34,
+      "fat": 16,
+      "carbs": 22
+    },
+    {
+      "id": 4,
+      "slug": "pro-1000-fish",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "1000 г",
+      "taste": "Рыба",
+      "price": 1250,
+      "image": "/images/product-4.png",
+      "buttonText": "Заказать",
+      "calories": 370,
+      "protein": 35,
+      "fat": 15,
+      "carbs": 21
+    },
+    {
+      "id": 5,
+      "slug": "slim-500-buckwheat",
+      "category": "slim",
+      "title": "Cat Energy Slim",
+      "weight": "500 г",
+      "taste": "Гречка",
+      "price": 400,
+      "image": "/images/product-5.png",
+      "buttonText": "Заказать",
+      "calories": 290,
+      "protein": 24,
+      "fat": 9,
+      "carbs": 30
+    },
+    {
+      "id": 6,
+      "slug": "slim-1000-buckwheat",
+      "category": "slim",
+      "title": "Cat Energy Slim",
+      "weight": "1000 г",
+      "taste": "Гречка",
+      "price": 720,
+      "image": "/images/product-6.png",
+      "buttonText": "Заказать",
+      "calories": 295,
+      "protein": 25,
+      "fat": 8,
+      "carbs": 31
+    },
+    {
+      "id": 7,
+      "slug": "slim-500-rice",
+      "category": "vegan",
+      "title": "Cat Energy Vegan",
+      "weight": "500 г",
+      "taste": "Рис",
+      "price": 480,
+      "image": "/images/product-7.png",
+      "buttonText": "Заказать",
+      "calories": 305,
+      "protein": 22,
+      "fat": 10,
+      "carbs": 33
+    },
+    {
+      "id": 8,
+      "slug": "pro-500-beef",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "500 г",
+      "taste": "Говядина",
+      "price": 680,
+      "image": "/images/product-1.png",
+      "buttonText": "Заказать",
+      "calories": 385,
+      "protein": 33,
+      "fat": 19,
+      "carbs": 23
+    },
+    {
+      "id": 9,
+      "slug": "pro-1000-beef",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "1000 г",
+      "taste": "Говядина",
+      "price": 1200,
+      "image": "/images/product-2.png",
+      "buttonText": "Заказать",
+      "calories": 390,
+      "protein": 34,
+      "fat": 20,
+      "carbs": 20
+    },
+    {
+      "id": 10,
+      "slug": "pro-500-turkey",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "500 г",
+      "taste": "Индейка",
+      "price": 670,
+      "image": "/images/product-3.png",
+      "buttonText": "Заказать",
+      "calories": 360,
+      "protein": 36,
+      "fat": 14,
+      "carbs": 22
+    },
+    {
+      "id": 11,
+      "slug": "pro-1000-turkey",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "1000 г",
+      "taste": "Индейка",
+      "price": 1180,
+      "image": "/images/product-4.png",
+      "buttonText": "Заказать",
+      "calories": 362,
+      "protein": 37,
+      "fat": 13,
+      "carbs": 21
+    },
+    {
+      "id": 12,
+      "slug": "slim-500-oats",
+      "category": "slim",
+      "title": "Cat Energy Slim",
+      "weight": "500 г",
+      "taste": "Овес",
+      "price": 420,
+      "image": "/images/product-5.png",
+      "buttonText": "Заказать",
+      "calories": 285,
+      "protein": 23,
+      "fat": 7,
+      "carbs": 32
+    },
+    {
+      "id": 13,
+      "slug": "slim-1000-oats",
+      "category": "slim",
+      "title": "Cat Energy Slim",
+      "weight": "1000 г",
+      "taste": "Овес",
+      "price": 750,
+      "image": "/images/product-6.png",
+      "buttonText": "Заказать",
+      "calories": 288,
+      "protein": 24,
+      "fat": 8,
+      "carbs": 31
+    },
+    {
+      "id": 14,
+      "slug": "slim-500-corn",
+      "category": "vegan",
+      "title": "Cat Energy Vegan",
+      "weight": "500 г",
+      "taste": "Кукуруза",
+      "price": 520,
+      "image": "/images/product-7.png",
+      "buttonText": "Заказать",
+      "calories": 310,
+      "protein": 21,
+      "fat": 9,
+      "carbs": 35
+    },
+    {
+      "id": 15,
+      "slug": "pro-500-duck",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "500 г",
+      "taste": "Утка",
+      "price": 710,
+      "image": "/images/product-1.png",
+      "buttonText": "Заказать",
+      "calories": 395,
+      "protein": 30,
+      "fat": 21,
+      "carbs": 23
+    },
+    {
+      "id": 16,
+      "slug": "pro-1000-duck",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "1000 г",
+      "taste": "Утка",
+      "price": 1280,
+      "image": "/images/product-2.png",
+      "buttonText": "Заказать",
+      "calories": 398,
+      "protein": 31,
+      "fat": 22,
+      "carbs": 22
+    },
+    {
+      "id": 17,
+      "slug": "pro-500-rabbit",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "500 г",
+      "taste": "Кролик",
+      "price": 730,
+      "image": "/images/product-3.png",
+      "buttonText": "Заказать",
+      "calories": 355,
+      "protein": 38,
+      "fat": 12,
+      "carbs": 20
+    },
+    {
+      "id": 18,
+      "slug": "pro-1000-rabbit",
+      "category": "pro",
+      "title": "Cat Energy Pro",
+      "weight": "1000 г",
+      "taste": "Кролик",
+      "price": 1300,
+      "image": "/images/product-4.png",
+      "buttonText": "Заказать",
+      "calories": 358,
+      "protein": 39,
+      "fat": 11,
+      "carbs": 19
+    },
+    {
+      "id": 19,
+      "slug": "slim-500-barley",
+      "category": "slim",
+      "title": "Cat Energy Slim",
+      "weight": "500 г",
+      "taste": "Ячмень",
+      "price": 430,
+      "image": "/images/product-5.png",
+      "buttonText": "Заказать",
+      "calories": 280,
+      "protein": 22,
+      "fat": 6,
+      "carbs": 34
+    },
+    {
+      "id": 20,
+      "slug": "slim-1000-barley",
+      "category": "slim",
+      "title": "Cat Energy Slim",
+      "weight": "1000 г",
+      "taste": "Ячмень",
+      "price": 760,
+      "image": "/images/product-6.png",
+      "buttonText": "Заказать",
+      "calories": 282,
+      "protein": 23,
+      "fat": 7,
+      "carbs": 33
+    },
+    {
+      "id": 21,
+      "slug": "slim-500-peas",
+      "category": "vegan",
+      "title": "Cat Energy Vegan",
+      "weight": "500 г",
+      "taste": "Горох",
+      "price": 540,
+      "image": "/images/product-7.png",
+      "buttonText": "Заказать",
+      "calories": 300,
+      "protein": 26,
+      "fat": 5,
+      "carbs": 36
+    }
+  ],
+  "reviews": [
+    {
+      "id": 1,
+      "productId": 1,
+      "author": "Ирина К.",
+      "rating": 5,
+      "date": "2026-05-12",
+      "text": "Кот ест с удовольствием, шерсть стала заметно мягче уже через месяц. Курица — его любимый вкус."
+    },
+    {
+      "id": 2,
+      "productId": 1,
+      "author": "Дмитрий В.",
+      "rating": 4,
+      "date": "2026-04-28",
+      "text": "Хороший состав, но упаковки 500г хватает буквально на пару недель для двух котов."
+    },
+    {
+      "id": 3,
+      "productId": 2,
+      "author": "Анна С.",
+      "rating": 5,
+      "date": "2026-06-02",
+      "text": "Взяли сразу килограммовую банку — оказалось выгоднее и надолго хватает. Коту нравится."
+    },
+    {
+      "id": 4,
+      "productId": 3,
+      "author": "Максим Л.",
+      "rating": 5,
+      "date": "2026-03-19",
+      "text": "Рыбный вкус зашёл даже привередливой кошке. Перхоти стало меньше, шерсть блестит."
+    },
+    {
+      "id": 5,
+      "productId": 3,
+      "author": "Ольга П.",
+      "rating": 3,
+      "date": "2026-02-07",
+      "text": "Кот ест без особого энтузиазма, но результат по весу заметен. Может, дело в конкретном питомце."
+    },
+    {
+      "id": 6,
+      "productId": 4,
+      "author": "Сергей Н.",
+      "rating": 4,
+      "date": "2026-05-30",
+      "text": "Берём уже вторую банку. Набор массы идёт медленно, но стабильно."
+    },
+    {
+      "id": 7,
+      "productId": 5,
+      "author": "Екатерина Р.",
+      "rating": 5,
+      "date": "2026-06-15",
+      "text": "Кот похудел на 1.5 кг за два месяца без всякого стресса для него. Очень довольны!"
+    },
+    {
+      "id": 8,
+      "productId": 5,
+      "author": "Виктор Т.",
+      "rating": 4,
+      "date": "2026-04-11",
+      "text": "Гречка неожиданно понравилась коту больше, чем обычный корм. Вес постепенно снижается."
+    },
+    {
+      "id": 9,
+      "productId": 6,
+      "author": "Наталья Д.",
+      "rating": 5,
+      "date": "2026-05-22",
+      "text": "Отличный вариант для склонного к полноте кота. Ест с аппетитом, самочувствие хорошее."
+    },
+    {
+      "id": 10,
+      "productId": 7,
+      "author": "Павел Ж.",
+      "rating": 4,
+      "date": "2026-03-03",
+      "text": "Vegan-линейка — приятная неожиданность, кот ест нормально, пищеварение в порядке."
+    },
+    {
+      "id": 11,
+      "productId": 7,
+      "author": "Юлия М.",
+      "rating": 5,
+      "date": "2026-06-08",
+      "text": "Рис зашёл на ура, кот теперь сам бежит к миске. Рекомендую!"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "test@mail.com",
+      "password": "12345",
+      "name": "Тестовый Пользователь"
+    }
+  ]
+}

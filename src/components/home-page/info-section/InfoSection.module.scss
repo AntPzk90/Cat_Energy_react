@@ -1,0 +1,97 @@
+.info-section {
+  &__wrapper {
+    @include container;
+
+    @include respond-to(desktop) {
+      padding-block-start: 25px;
+    }
+  }
+}
+
+.program {
+  @include flex(column, start, center, 20px);
+
+  @include respond-to(desktop) {
+    @include flex(row, start, center, 20px);
+  }
+
+  &__item {
+    @include flex(row, start, center, 20px);
+    flex-wrap: wrap;
+    width: 100%;
+    background-color: $color-grey;
+    padding: 24px 20px 20px 20px;
+  }
+
+  &__image-holder {
+    @include flex(row, center, center);
+
+    position: relative;
+    height: 50px;
+    min-width: 68px;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: $color-primary;
+      transform: translateX(-50%);
+      z-index: 0;
+      content: '';
+    }
+  }
+
+  &__image {
+    z-index: 1;
+  }
+
+  &__title {
+    font-size: 24px;
+  }
+
+  &__description {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: $color-description-text;
+  }
+
+  &__link-holder {
+    width: 100%;
+    padding-block-start: 15px;
+    border-block-start: 1px solid $color-dark-grey;
+  }
+
+  &__link {
+    font-size: 16px;
+    line-height: 1.2;
+    color: $color-black;
+    text-transform: uppercase;
+
+    &:after {
+      display: inline-block;
+      height: 12px;
+      width: 24px;
+      margin-inline-start: 15px;
+      background: url('src/assets/icons/link-arrow-icon.svg') 0 0 / 24px 12px no-repeat;
+      transition: transform ease 0.2s;
+      content: '';
+    }
+
+    &:hover {
+      opacity: 0.8;
+
+      &:after {
+        display: inline-block;
+        transform: translateX(5px);
+        content: '';
+      }
+    }
+
+    &:active {
+      opacity: 0.6;
+    }
+  }
+}

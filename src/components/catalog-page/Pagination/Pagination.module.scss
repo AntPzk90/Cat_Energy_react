@@ -1,0 +1,22 @@
+.pagination {
+  @include flex(row, center, center, $spacing-sm);
+  margin-block-start: $spacing-lg;
+  grid-area: pagination;
+
+  button {
+    @include reset-button;
+    padding: $spacing-xs $spacing-sm;
+    border-radius: $radius-sm;
+    min-width: 32px;
+
+    &.active {
+      background-color: $color-primary;
+      color: #fff;
+    }
+
+    &:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+// Cart.module.scss
+.cart {
+  @include container;
+  padding-block: $spacing-lg;
+
+  &__wrapper {
+    @include container;
+
+    padding-block: 25px;
+
+    @include respond-to(desktop) {
+      padding-block-start: $header-height-desktop;
+
+      display: grid;
+      column-gap: 40px;
+    }
+  }
+
+  &__title {
+    margin-block-end: $spacing-lg;
+  }
+
+  &__list {
+    border-top: 1px solid $color-border;
+  }
+
+  &__footer {
+    @include flex(row, space-between, center, $spacing-md);
+    margin-block-start: $spacing-lg;
+    flex-wrap: wrap;
+  }
+
+  &__total {
+    font-size: $font-size-lg;
+    font-weight: 700;
+  }
+
+  &__empty {
+    @include flex(column, center, center, $spacing-md);
+    padding-block: $spacing-xl;
+    text-align: center;
+    color: $color-text-muted;
+  }
+}

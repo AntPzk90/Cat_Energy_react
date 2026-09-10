@@ -1,0 +1,27 @@
+.footer {
+  border-top: 1px solid $color-border;
+  background-color: $color-background-grey;
+  margin-top: auto;
+
+  @include respond-to(desktop) {
+    @include flex(row, space-between, center);
+  }
+}
+
+.inner {
+  @include container;
+  @include flex(row, center, center);
+  height: 56px;
+  color: $color-text-muted;
+  font-size: $font-size-sm;
+  border-bottom: 1px solid $color-dark-grey;
+
+  @include respond-to(desktop) {
+    border: none;
+  }
+}
+
+.social {
+  @include flex(row, center, center);
+  gap: 12px;
+}

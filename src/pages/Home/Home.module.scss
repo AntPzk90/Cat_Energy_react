@@ -1,0 +1,17 @@
+.home {
+  @include flex(column, flex-start, stretch);
+}
+
+.list {
+  @include flex(column, flex-start, stretch);
+}
+
+.item {
+  padding: $spacing-md;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+}
+
+.error {
+  color: $color-danger;
+}

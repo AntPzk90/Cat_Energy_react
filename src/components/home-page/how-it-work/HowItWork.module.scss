@@ -1,0 +1,32 @@
+.how-it-work {
+  &__wrapper {
+    @include container;
+    padding-block: 25px;
+  }
+
+  &__title {
+    margin-block-end: 36px;
+  }
+
+  &__list {
+    display: grid;
+    row-gap: 20px;
+    @include respond-to(tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    align-items: center;
+    column-gap: 20px;
+  }
+
+  &__icon-holder {
+    @include flex(row, center, center);
+    width: 60px;
+    height: 60px;
+    background-color: $color-primary;
+  }
+}
