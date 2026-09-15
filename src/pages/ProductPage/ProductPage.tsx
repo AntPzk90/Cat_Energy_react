@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useFetch } from '@/hooks/useFetch';
 import { api } from '@/services/api';
+import { useCartStore } from '@/stores/cartStore';
 import { CardI, ReviewI } from '@/types';
 import Loader from '@/components/ui/loader/Loader';
 import Breadcrumbs from '@/components/ui/breadcrumbs/BreadCrumbs';
@@ -11,6 +12,7 @@ import styles from './ProductPage.module.scss';
 
 export default function ProductPage() {
   const { id } = useParams<{ id: string }>();
+  const addItem = useCartStore((state) => state.addItem);
   const [product, setProduct] = useState<CardI | null>(null);
   const [reviews, setReviews] = useState<ReviewI[]>([]);
 
@@ -64,9 +66,16 @@ export default function ProductPage() {
             price={product.price}
             buttonText={product.buttonText}
             mod={'page-card'}
-            onOrderClick={() => {
-              console.log('order');
-            }}
+            onOrderClick={() =>
+              addItem({
+                id: product.id,
+                title: product.title,
+                image: product.image,
+                price: product.price,
+                weight: product.weight,
+                taste: product.taste,
+              })
+            }
           />
           {!isReviewsLoading && !reviewsError && (
             <ul className={styles.reviews}>

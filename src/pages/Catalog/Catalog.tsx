@@ -1,4 +1,5 @@
 import { useEffect, useState, FormEvent } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useFetch } from '@/hooks/useFetch';
 import { api } from '@/services/api';
 import { CardI, PaginatedResponseI } from '@/types';
@@ -18,19 +19,46 @@ interface FiltersStateI {
   perPage: number;
 }
 
-const initialFilters: FiltersStateI = {
-  priceSort: '',
-  componentSort: '',
-  categories: [],
-  page: 1,
-  perPage: 6,
+const DEFAULT_PER_PAGE = 6;
+
+const parseFilters = (searchParams: URLSearchParams): FiltersStateI => {
+  const priceSort = searchParams.get('price');
+  const componentSort = searchParams.get('component');
+  const categoriesParam = searchParams.get('category');
+  const page = Number(searchParams.get('page'));
+  const perPage = Number(searchParams.get('perPage'));
+
+  return {
+    priceSort: priceSort === 'asc' || priceSort === 'desc' ? priceSort : '',
+    componentSort:
+      componentSort === 'protein' || componentSort === 'fat' || componentSort === 'carbs'
+        ? componentSort
+        : '',
+    categories: categoriesParam ? categoriesParam.split(',') : [],
+    page: page > 0 ? page : 1,
+    perPage: perPage > 0 ? perPage : DEFAULT_PER_PAGE,
+  };
+};
+
+const filtersToSearchParams = (filters: FiltersStateI): URLSearchParams => {
+  const params = new URLSearchParams();
+
+  if (filters.priceSort) params.set('price', filters.priceSort);
+  if (filters.componentSort) params.set('component', filters.componentSort);
+  if (filters.categories.length > 0) params.set('category', filters.categories.join(','));
+  params.set('page', String(filters.page));
+  params.set('perPage', String(filters.perPage));
+
+  return params;
 };
 
 export default function Catalog() {
   const [products, setProducts] = useState<CardI[]>([]);
   const [pagesCount, setPagesCount] = useState(1);
-  const [filters, setFilters] = useState<FiltersStateI>(initialFilters);
   const [showFilter, setShowFilter] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const filters = parseFilters(searchParams);
 
   const buildProductsQuery = (filters: FiltersStateI): string => {
     const params = new URLSearchParams();
@@ -81,20 +109,15 @@ export default function Catalog() {
       page: 1,
     };
 
-    setFilters(nextFilters);
-    loadProducts(nextFilters);
+    setSearchParams(filtersToSearchParams(nextFilters));
   };
 
   const onPageChange = (page: number) => {
-    const nextFilters = { ...filters, page };
-    setFilters(nextFilters);
-    loadProducts(nextFilters);
+    setSearchParams(filtersToSearchParams({ ...filters, page }));
   };
 
   const onPerPageChange = (perPage: number) => {
-    const nextFilters = { ...filters, perPage, page: 1 };
-    setFilters(nextFilters);
-    loadProducts(nextFilters);
+    setSearchParams(filtersToSearchParams({ ...filters, perPage, page: 1 }));
   };
 
   const onFilterBtnClick = () => {
@@ -102,16 +125,23 @@ export default function Catalog() {
   };
 
   useEffect(() => {
-    loadProducts(initialFilters);
+    loadProducts(filters);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [searchParams]);
 
   return (
     <section className={styles.catalog}>
       <div className={styles['catalog__wrapper']}>
         <h1 className={`${styles['catalog__title']} main-title`}>{'Каталог товаров'}</h1>
 
-        <SideMenu isActive={showFilter} onFormSubmit={onFormSubmit} />
+        <SideMenu
+          key={`${filters.priceSort}|${filters.componentSort}|${filters.categories.join(',')}`}
+          isActive={showFilter}
+          onFormSubmit={onFormSubmit}
+          priceSort={filters.priceSort}
+          componentSort={filters.componentSort}
+          categories={filters.categories}
+        />
 
         {isLoading && <Loader />}
         {error && <p className={styles.error}>{error.message}</p>}

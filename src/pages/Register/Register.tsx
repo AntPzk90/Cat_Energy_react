@@ -1,12 +1,12 @@
 // src/pages/Register/Register.tsx
 import { useState, type FormEvent } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { useAuth } from '@/contexts/AuthContext';
+import { useAuthStore } from '@/stores/authStore';
 import Button from '@/components/ui/button/Button';
 import styles from './Register.module.scss';
 
 export default function Register() {
-  const { register } = useAuth();
+  const register = useAuthStore((state) => state.register);
   const navigate = useNavigate();
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);

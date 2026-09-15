@@ -1,7 +1,7 @@
 import { Link, NavLink } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
-import { useCart } from '@/contexts/CartContext';
-import { useAuth } from '@/contexts/AuthContext';
+import { useCartStore, selectTotalCount } from '@/stores/cartStore';
+import { useAuthStore, selectIsAuthenticated } from '@/stores/authStore';
 import MobileLogoSvg from '@/assets/icons/logo-mobile.svg';
 import MobileLogoTextSvg from '@/assets/icons/logo-text.svg';
 import DesktopLogoSvg from '@/assets/icons/logo-desktop.svg';
@@ -18,9 +18,11 @@ export default function Header({ isMobileMenuOpen, onMobileNavBtnClick }: Header
 
   const pageName = location.pathname;
 
-  const { totalCount } = useCart();
+  const totalCount = useCartStore(selectTotalCount);
 
-  const { user, isAuthenticated, logout } = useAuth();
+  const user = useAuthStore((state) => state.user);
+  const isAuthenticated = useAuthStore(selectIsAuthenticated);
+  const logout = useAuthStore((state) => state.logout);
 
   return (
     <header className={`${styles.header} ${pageName !== '/' && styles['header--contrast']}`}>
@@ -33,11 +35,16 @@ export default function Header({ isMobileMenuOpen, onMobileNavBtnClick }: Header
         <nav className={`${styles.nav} ${isMobileMenuOpen ? styles['nav--opened'] : ''}`}>
           <NavLink to="/">Главная</NavLink>
           <NavLink to="/catalog">Каталог</NavLink>
-          <NavLink to="/form">Форма</NavLink>
         </nav>
-        <span className={styles['nav-btn']} onClick={onMobileNavBtnClick}>
+        <button
+          type="button"
+          className={`${styles['nav-btn']} ${isMobileMenuOpen ? styles['nav-btn--opened'] : ''}`}
+          onClick={onMobileNavBtnClick}
+          aria-label={isMobileMenuOpen ? 'Закрыть меню' : 'Открыть меню'}
+          aria-expanded={isMobileMenuOpen}
+        >
           <span></span>
-        </span>
+        </button>
         <Link to="/cart" className={styles.cartLink}>
           <img src={CartIcon} width={32} height={32} />
           {totalCount > 0 && <span className={styles.cartBadge}>{totalCount}</span>}
@@ -45,13 +52,15 @@ export default function Header({ isMobileMenuOpen, onMobileNavBtnClick }: Header
 
         {isAuthenticated ? (
           <div className={styles.userMenu}>
-            <span>{user?.name}</span>
-            <button type="button" onClick={logout}>
+            <span className={styles.userMenu__name}>{user?.name}</span>
+            <button type="button" className={styles.userMenu__logout} onClick={logout}>
               Выйти
             </button>
           </div>
         ) : (
-          <Link to="/login">Войти</Link>
+          <Link to="/login" className={styles.loginLink}>
+            Войти
+          </Link>
         )}
       </div>
     </header>

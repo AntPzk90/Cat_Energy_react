@@ -1,12 +1,14 @@
 // src/pages/Cart/Cart.tsx
 import { Link } from 'react-router-dom';
-import { useCart } from '@/contexts/CartContext';
+import { useCartStore, selectTotalPrice } from '@/stores/cartStore';
 import CartItem from '@/components/cart/cart-item/CartItem';
 import Button from '@/components/ui/button/Button';
 import styles from './Cart.module.scss';
 
 export default function Cart() {
-  const { items, totalPrice, clearCart } = useCart();
+  const items = useCartStore((state) => state.items);
+  const totalPrice = useCartStore(selectTotalPrice);
+  const clearCart = useCartStore((state) => state.clearCart);
 
   if (items.length === 0) {
     return (
