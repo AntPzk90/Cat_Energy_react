@@ -2,7 +2,6 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 
 import '@/lib/leaflet-icon-fix';
 import 'leaflet/dist/leaflet.css';
-import '@/styles/global.scss';
 import styles from './Map.module.scss';
 
 interface MapPropsI {

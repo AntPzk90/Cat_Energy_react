@@ -1,0 +1,65 @@
+.register {
+  @include container;
+  @include flex(column, flex-start, center);
+  padding-block: $spacing-xl;
+  min-height: calc(100dvh - #{$header-height});
+
+  @include respond-to(desktop) {
+    padding-block-start: calc(#{$header-height-desktop} + #{$spacing-xl});
+  }
+
+  &__title {
+    margin-block-end: $spacing-lg;
+    text-align: center;
+  }
+
+  &__form {
+    @include flex(column, flex-start, stretch, $spacing-md);
+    width: 100%;
+    max-width: 380px;
+    padding: $spacing-lg;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    background-color: $color-bg;
+
+    label {
+      @include flex(column, flex-start, stretch, $spacing-xs);
+      font-size: $font-size-sm;
+      color: $color-text-muted;
+    }
+
+    input {
+      padding: $spacing-sm $spacing-md;
+      border: 1px solid $color-border;
+      border-radius: $radius-sm;
+      font-size: $font-size-base;
+      color: $color-text;
+      background-color: $color-bg;
+
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+      }
+    }
+
+    button {
+      margin-block-start: $spacing-sm;
+      width: 100%;
+    }
+  }
+
+  &__error {
+    color: $color-danger;
+    font-size: $font-size-sm;
+  }
+
+  > p {
+    margin-block-start: $spacing-lg;
+    text-align: center;
+
+    a {
+      color: $color-primary;
+      text-decoration: underline;
+    }
+  }
+}

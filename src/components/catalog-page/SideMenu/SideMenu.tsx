@@ -20,9 +20,18 @@ interface SideMenuI {
 interface SideMenuPropsI {
   onFormSubmit: (evt: FormEvent<HTMLFormElement>) => void;
   isActive: boolean;
+  priceSort: string;
+  componentSort: string;
+  categories: string[];
 }
 
-export default function SideMenu({ onFormSubmit, isActive = false }: SideMenuPropsI) {
+export default function SideMenu({
+  onFormSubmit,
+  isActive = false,
+  priceSort,
+  componentSort,
+  categories,
+}: SideMenuPropsI) {
   const { mainTitle, price, categoryType, componentsType }: SideMenuI = FILTERS;
 
   return (
@@ -34,8 +43,9 @@ export default function SideMenu({ onFormSubmit, isActive = false }: SideMenuPro
             <p className={styles['side-menu__sub-title']}>{price.subTitle}</p>
             <Select
               id={'price-sort'}
+              name={'price'}
               options={price.items}
-              onChange={(value) => console.log('sort by', value)}
+              defaultValue={priceSort}
             />
           </li>
           <li className={styles['side-menu__item']}>
@@ -47,7 +57,7 @@ export default function SideMenu({ onFormSubmit, isActive = false }: SideMenuPro
                 label={componentsTypeFilterItem.label}
                 key={componentsTypeFilterItem.type}
                 value={componentsTypeFilterItem.type}
-                defaultChecked={componentsTypeFilterItem.type == 'protein' ? true : false}
+                defaultChecked={(componentSort || 'protein') === componentsTypeFilterItem.type}
               ></Radio>
             ))}
           </li>
@@ -60,6 +70,7 @@ export default function SideMenu({ onFormSubmit, isActive = false }: SideMenuPro
                 label={categoryTypeFilterItem.label}
                 key={categoryTypeFilterItem.type}
                 value={categoryTypeFilterItem.type}
+                defaultChecked={categories.includes(categoryTypeFilterItem.type)}
               ></Checkbox>
             ))}
           </li>

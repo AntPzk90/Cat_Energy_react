@@ -4,12 +4,14 @@ import styles from './Select.module.scss';
 
 interface SelectPropsI {
   id: string;
+  name: string;
   label?: string;
   options: FilterOptionI[];
+  defaultValue?: string;
   onChange?: (value: string) => void;
 }
 
-export default function Select({ id, label, options, onChange }: SelectPropsI) {
+export default function Select({ id, name, label, options, defaultValue, onChange }: SelectPropsI) {
   return (
     <div className={styles.select}>
       {label && (
@@ -22,7 +24,8 @@ export default function Select({ id, label, options, onChange }: SelectPropsI) {
         <select
           id={id}
           className={styles.select__field}
-          name={'price'}
+          name={name}
+          defaultValue={defaultValue}
           onChange={(evt) => onChange?.(evt.target.value)}
         >
           {options.map(({ label: optionLabel, type }) => (

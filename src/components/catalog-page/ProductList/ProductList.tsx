@@ -1,5 +1,5 @@
 import Card from '@/components/ui/card/Card';
-import { useCart } from '@/contexts/CartContext';
+import { useCartStore } from '@/stores/cartStore';
 import { CardI } from '@/types';
 import styles from './ProductList.module.scss';
 
@@ -8,7 +8,7 @@ interface ProductsPropsI {
 }
 
 export default function ProductList({ products }: ProductsPropsI) {
-  const { addItem } = useCart();
+  const addItem = useCartStore((state) => state.addItem);
 
   return (
     <ul className={styles['product-list']}>
